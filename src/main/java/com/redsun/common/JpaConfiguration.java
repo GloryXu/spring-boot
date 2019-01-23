@@ -1,4 +1,4 @@
-package dbdemo.repository;
+package com.redsun.common;
 
 import org.springframework.boot.orm.jpa.EntityScan;
 import org.springframework.context.annotation.Bean;
@@ -16,9 +16,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @Configuration
-@EnableTransactionManagement
-@EntityScan(basePackages = "dbdemo.**.entity")
-@EnableJpaRepositories(basePackages = "dbdemo.**.repository")
+@EnableTransactionManagement(proxyTargetClass = true)
+@EntityScan(basePackages = {"com.redsun.dbdemo.**.entity", "com.redsun.propagation.**.entity"})
+@EnableJpaRepositories(basePackages = {"com.redsun.dbdemo.**.repository", "com.redsun.propagation.**.repository"})
 public class JpaConfiguration {
 
     @Bean

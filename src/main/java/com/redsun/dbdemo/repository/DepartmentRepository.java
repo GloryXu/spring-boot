@@ -1,6 +1,6 @@
-package dbdemo.repository;
+package com.redsun.dbdemo.repository;
 
-import dbdemo.entity.Department;
+import com.redsun.dbdemo.entity.Department;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

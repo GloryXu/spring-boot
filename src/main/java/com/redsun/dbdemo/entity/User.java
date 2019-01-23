@@ -1,4 +1,4 @@
-package dbdemo.entity;
+package com.redsun.dbdemo.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package dbdemo;
+package com.redsun.dbdemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
