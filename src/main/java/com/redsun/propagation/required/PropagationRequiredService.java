@@ -19,8 +19,8 @@ public class PropagationRequiredService {
     private PropagationRepository propagationRepository;
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public void save(PropagationEntity propagationEntity) {
-        propagationRepository.save(propagationEntity);
+    public PropagationEntity save(PropagationEntity propagationEntity) {
+        return propagationRepository.save(propagationEntity);
     }
 
 }

@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.redsun.propagation.entity.PropagationEntity;
 import com.redsun.propagation.required.PropagationRequiredService;
+import org.springframework.util.Assert;
 import test.base.BaseTest;
 
 /**
@@ -20,7 +21,8 @@ public class PropagationTest extends BaseTest {
     public void testInsert() {
         PropagationEntity propagationEntity = new PropagationEntity();
         propagationEntity.setName("111");
-        propagationRequiredService.save(propagationEntity);
+        PropagationEntity result = propagationRequiredService.save(propagationEntity);
+        Assert.notNull(result.getId());
     }
 
 }

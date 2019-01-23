@@ -6,10 +6,12 @@ package test.base;
  * @date Created at 13:02 2019/1/22
  */
 
-import com.redsun.common.JpaConfiguration;
+import com.redsun.Application;
 import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author xuguangrong
@@ -17,7 +19,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @date Created at 22:11 2018/10/27
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {JpaConfiguration.class})
+@SpringApplicationConfiguration(classes = {Application.class})
+@Rollback
+@Transactional(transactionManager = "transactionManager")
 public abstract class BaseTest {
 
 }

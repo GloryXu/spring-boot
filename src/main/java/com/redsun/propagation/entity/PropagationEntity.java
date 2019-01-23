@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "com/redsun/propagation")
+@Table(name = "propagation")
 public class PropagationEntity {
 
     @Id
