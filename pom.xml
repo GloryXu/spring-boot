@@ -7,6 +7,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>mysql</module>
+        <module>redis</module>
     </modules>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>spring-boot</artifactId>
@@ -28,19 +29,6 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-redis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.redsun</groupId>
-            <artifactId>mysql</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
@@ -50,8 +38,6 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
-
-
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

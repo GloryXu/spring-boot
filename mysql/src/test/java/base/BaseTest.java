@@ -1,4 +1,4 @@
-package test.base;
+package base;
 
 /**
  * @author xuguangrong

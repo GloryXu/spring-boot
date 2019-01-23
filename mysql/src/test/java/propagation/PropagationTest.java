@@ -1,11 +1,11 @@
-package test.propagation;
+package propagation;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.redsun.propagation.entity.PropagationEntity;
 import com.redsun.propagation.required.PropagationRequiredService;
 import org.springframework.util.Assert;
-import test.base.BaseTest;
+import base.BaseTest;
 
 /**
  * @author xuguangrong

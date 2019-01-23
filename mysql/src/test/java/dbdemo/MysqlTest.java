@@ -1,4 +1,4 @@
-package test.dbdemo;
+package dbdemo;
 
 import com.redsun.dbdemo.entity.Department;
 import com.redsun.dbdemo.entity.Role;
@@ -15,7 +15,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.util.Assert;
-import test.base.BaseTest;
+import base.BaseTest;
 
 import java.util.Date;
 import java.util.List;
@@ -24,13 +24,13 @@ import java.util.List;
 public class MysqlTest extends BaseTest {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    DepartmentRepository departmentRepository;
+    private DepartmentRepository departmentRepository;
 
     @Autowired
-    RoleRepository roleRepository;
+    private RoleRepository roleRepository;
 
     @Before
     public void initData() {
