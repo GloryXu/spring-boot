@@ -41,23 +41,23 @@ public class MysqlTest extends BaseTest {
         Department department = new Department();
         department.setName("开发部");
         departmentRepository.save(department);
-        Assert.notNull(department.getId());
+        Assert.notNull(department.getId(), "department id is null!");
 
         Role role = new Role();
         role.setName("admin");
         roleRepository.save(role);
-        Assert.notNull(role.getId());
+        Assert.notNull(role.getId(),"role id is null!");
 
         User user = new User();
         user.setName("user");
         user.setCreatedate(new Date());
         user.setDepartment(department);
         List<Role> roles = roleRepository.findAll();
-        Assert.notNull(roles);
+        Assert.notNull(roles, "roles is null!");
         user.setRoles(roles);
 
         userRepository.save(user);
-        Assert.notNull(user.getId());
+        Assert.notNull(user.getId(), "user id is null!");
     }
 
     @Test
