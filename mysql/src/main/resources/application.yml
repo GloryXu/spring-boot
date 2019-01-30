@@ -4,10 +4,10 @@ server:
     uri-encoding: UTF-8
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/test?characterEncoding=utf8
+    url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&verifyServerCertificate=false&characterEncoding=utf8
     username: glory
     password: glory
-#    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.jdbc.Driver
   jpa:
     database: MYSQL
     show-sql: true

@@ -1,6 +1,6 @@
 package dbdemo;
 
-import com.redsun.common.JpaConfiguration;
+import base.BaseTest;
 import com.redsun.dbdemo.entity.Department;
 import com.redsun.dbdemo.entity.Role;
 import com.redsun.dbdemo.entity.User;
@@ -15,15 +15,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.util.Assert;
-import base.BaseTest;
 
 import java.util.Date;
 import java.util.List;
 
 @Slf4j
-@ContextConfiguration(classes = {JpaConfiguration.class})
 public class MysqlTest extends BaseTest {
 
     @Autowired
