@@ -4,8 +4,12 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.redsun.propagation.entity.PropagationEntity;
 import com.redsun.propagation.required.PropagationRequiredService;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import base.BaseTest;
+
+import java.util.UUID;
 
 /**
  * @author xuguangrong
@@ -18,11 +22,13 @@ public class PropagationTest extends BaseTest {
     private PropagationRequiredService propagationRequiredService;
 
     @Test
+    @Rollback
+    @Transactional
     public void testInsert() {
         PropagationEntity propagationEntity = new PropagationEntity();
-        propagationEntity.setName("111");
+        propagationEntity.setName(UUID.randomUUID().toString());
         PropagationEntity result = propagationRequiredService.save(propagationEntity);
-        Assert.notNull(result.getId());
+        Assert.notNull(result.getId(), "result id is null!");
     }
 
 }

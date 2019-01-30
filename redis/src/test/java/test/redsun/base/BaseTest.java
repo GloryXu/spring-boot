@@ -1,4 +1,4 @@
-package base;
+package test.redsun.base;
 
 import com.redsun.Application;
 import org.junit.runner.RunWith;

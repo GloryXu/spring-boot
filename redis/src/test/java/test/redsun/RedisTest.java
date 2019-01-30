@@ -7,13 +7,12 @@ import com.redsun.dbdemo.entity.User;
 import com.redsun.repository.UserRedis;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
+import test.redsun.base.BaseTest;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,9 +24,8 @@ import java.util.List;
  * @description redis测试类
  * @date Created at 17:45 2019/1/28
  */
-@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {RedisConfig.class, UserRedis.class})
-public class RedisTest {
+public class RedisTest extends BaseTest {
     private static Logger logger = LoggerFactory.getLogger(RedisTest.class);
 
     @Autowired
