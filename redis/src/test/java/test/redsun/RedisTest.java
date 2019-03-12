@@ -60,6 +60,9 @@ public class RedisTest extends BaseTest {
         Assert.notNull(user, "user is null!");
         logger.info("==========user========= name:{}, department:{}, role:{}",user.getName(), user.getDepartment().getName()
         , user.getRoles().get(0).getName());
+
+        Boolean result = userRedis.delete(this.getClass().getName() + ":userByname:" + user.getName());
+        logger.info("==========user delete result : {}", result);
     }
 
 }

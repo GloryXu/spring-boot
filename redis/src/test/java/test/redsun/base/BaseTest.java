@@ -11,7 +11,6 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @date Created at 22:11 2018/10/27
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = Application.class)
 public abstract class BaseTest {
 
 }

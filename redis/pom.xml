@@ -32,12 +32,15 @@
         </dependency>
         <dependency>
             <groupId>com.redsun</groupId>
-            <artifactId>common</artifactId>
-            <version>${project.version}</version>
+            <artifactId>mysql</artifactId>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-xml</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
         </dependency>
     </dependencies>
 

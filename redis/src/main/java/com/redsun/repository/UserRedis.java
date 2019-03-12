@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 public class UserRedis {
 
     @Autowired
-    private RedisTemplate<String, String> redisTemplate;
+    private RedisTemplate<Object, Object> redisTemplate;
 
     public void add(String key, Long time, User user) {
         Gson gson = new Gson();
@@ -35,7 +35,7 @@ public class UserRedis {
     public User get(String key) {
         Gson gson = new Gson();
         User user = null;
-        String userJson = redisTemplate.opsForValue().get(key);
+        String userJson = (String) redisTemplate.opsForValue().get(key);
         if(!StringUtils.isEmpty(userJson)) {
             user = gson.fromJson(userJson, User.class);
         }
@@ -46,15 +46,16 @@ public class UserRedis {
     public List<User> getList(String key) {
         Gson gson = new Gson();
         List<User> ts = null;
-        String listJson = redisTemplate.opsForValue().get(key);
+        String listJson = (String) redisTemplate.opsForValue().get(key);
         if(!StringUtils.isEmpty(listJson)) {
             ts = gson.fromJson(listJson, new TypeToken<List<User>>(){}.getType());
         }
         return ts;
     }
 
-    public void delete(String key) {
-        redisTemplate.opsForValue().getOperations().delete(key);
+    public Boolean delete(String key) {
+        Boolean result = redisTemplate.opsForValue().getOperations().delete(key);
+        return result;
     }
 
 }
