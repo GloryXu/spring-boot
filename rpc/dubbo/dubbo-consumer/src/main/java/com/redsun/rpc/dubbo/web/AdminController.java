@@ -37,4 +37,18 @@ public class AdminController {
         return "invoke success!";
     }
 
+    @RequestMapping("/shutdown")
+    public String shutdown() {
+        logger.info("shutdown be invoked!");
+        genericConsumerService.shutdown();
+        return "shutdown success!";
+    }
+
+    @RequestMapping("/remove")
+    public String remove() {
+        logger.info("shutDownAndRemove be invoked!");
+        genericConsumerService.shutDownAndRemove();
+        return "shutDownAndRemove success!";
+    }
+
 }

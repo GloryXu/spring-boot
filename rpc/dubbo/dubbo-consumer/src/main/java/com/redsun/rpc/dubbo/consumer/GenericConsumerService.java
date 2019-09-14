@@ -23,6 +23,7 @@ public class GenericConsumerService {
     private static final Logger logger = LoggerFactory.getLogger(GenericConsumerService.class);
 
     private static Map<String, GenericService> genericServiceMap = new HashMap<>();
+    private static Map<String, ReferenceConfig> referenceConfigMap = new HashMap<>();
 
     public void invoke(Integer number) {
         GenericService service = getService("aaa");
@@ -53,11 +54,13 @@ public class GenericConsumerService {
 
             ConsumerConfig consumerConfig = new ConsumerConfig();
             consumerConfig.setCorethreads(2);
-//            consumerConfig.setTimeout(2000);
+            consumerConfig.setGroup("glory");
+            consumerConfig.setVersion("1.0.0");
             reference.setConsumer(consumerConfig);
 
             genericService = reference.get();
-            genericServiceMap.put("aaa", genericService);
+            genericServiceMap.put(mapKey, genericService);
+            referenceConfigMap.put(mapKey, reference);
         }
 
         return genericService;
@@ -80,9 +83,36 @@ public class GenericConsumerService {
 
         ConsumerConfig consumerConfig = new ConsumerConfig();
         consumerConfig.setCorethreads(2);
-//        consumerConfig.setTimeout(timeout);
+        consumerConfig.setGroup("glory");
+        consumerConfig.setVersion("1.0.0");
         reference.setConsumer(consumerConfig);
 
         genericServiceMap.put("aaa", reference.get());
+        referenceConfigMap.put("aaa", reference);
+    }
+
+
+    public void shutdown() {
+        ReferenceConfig referenceConfig = referenceConfigMap.get("aaa");
+        referenceConfig.destroy();
+
+        referenceConfigMap.remove("aaa");
+        genericServiceMap.remove("aaa");
+
+    }
+
+    /**
+     * destroy referenceConfig
+     * 测试 genericService能否调用
+     *
+     * 如下异常：
+     * org.apache.dubbo.rpc.RpcException: Rpc cluster invoker for interface org.apache.dubbo.rpc.service.GenericService on consumer 192.168.199.231 use dubbo version 2.7.2 is now destroyed! Can not invoke any more.
+     */
+    public void shutDownAndRemove() {
+        ReferenceConfig referenceConfig = referenceConfigMap.get("aaa");
+        referenceConfig.destroy();
+
+        referenceConfigMap.remove("aaa");
+        genericServiceMap.remove("aaa");
     }
 }

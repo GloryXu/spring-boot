@@ -23,6 +23,8 @@ public class GenericProviderService {
         service.setInterface(DemoService.class);
         service.setRef(new DemoServiceImpl());
         service.setGeneric("true");
+        service.setVersion("1.0.0");
+        service.setGroup("glory");
         service.export();
     }
 }
