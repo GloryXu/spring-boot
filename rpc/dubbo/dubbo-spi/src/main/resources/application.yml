@@ -1,0 +1,11 @@
+server:
+  port: 8085
+dubbo:
+  application:
+    name: dubbo-spi
+  scan:
+    base-packages: com.redsun.rpc.dubbo
+  protocol:
+    name: dubbo
+  registry:
+    address: zookeeper://127.0.0.1:2181
