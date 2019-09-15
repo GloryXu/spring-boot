@@ -1,0 +1,12 @@
+server:
+  port: 8083
+dubbo:
+  application:
+    name: dubbo-common-provider
+  scan:
+    base-packages: com.redsun.rpc.dubbo
+  protocol:
+    name: dubbo
+    port: 12345
+  registry:
+    address: zookeeper://127.0.0.1:2181
