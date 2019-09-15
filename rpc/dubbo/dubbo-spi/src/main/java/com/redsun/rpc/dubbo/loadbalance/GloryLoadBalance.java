@@ -23,11 +23,7 @@ public class GloryLoadBalance implements LoadBalance {
     public <T> Invoker<T> select(List<Invoker<T>> invokers, URL url, Invocation invocation) throws RpcException {
         Integer port = (Integer) invocation.getArguments()[0];// 前端传入的参数
         logger.info("前端传入端口为:" + port);
-        for (Invoker invoker : invokers) {
-            if (invoker.getUrl().getPort() == port) {
-                return invoker;
-            }
-        }
-        return invokers.get(0);
+        Invoker<T> invokerRet = invokers.stream().filter(invoker -> invoker.getUrl().getPort() == port).findFirst().get();
+        return invokerRet == null ? invokers.get(0) : invokerRet;
     }
 }
