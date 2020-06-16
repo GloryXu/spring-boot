@@ -1,4 +1,4 @@
-package com.redsun.classloader.multi;
+package com.redsun.test.classloader.multi;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

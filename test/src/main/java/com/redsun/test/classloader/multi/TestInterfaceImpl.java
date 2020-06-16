@@ -1,4 +1,4 @@
-package com.redsun.classloader.multi;
+package com.redsun.test.classloader.multi;
 
 /**
  * @author xuguangrong

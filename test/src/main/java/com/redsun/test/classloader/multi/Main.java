@@ -1,7 +1,6 @@
-package com.redsun.classloader.multi;
+package com.redsun.test.classloader.multi;
 
 import org.junit.Test;
-import org.springframework.boot.devtools.restart.classloader.ClassLoaderFile;
 import org.springframework.boot.devtools.restart.classloader.ClassLoaderFiles;
 import org.springframework.boot.devtools.restart.classloader.RestartClassLoader;
 import org.springframework.boot.logging.DeferredLog;
@@ -20,7 +19,7 @@ public class Main {
 
     @Test
     public void test1() throws ClassNotFoundException {
-        Class clazz = Class.forName("com.redsun.classloader.multi.TestInterface");
+        Class clazz = Class.forName("com.redsun.test.classloader.multi.TestInterface");
 
         TestInterface testInterface = new TestInterfaceImpl();
         System.out.println(clazz.isInstance(testInterface));
@@ -38,7 +37,7 @@ public class Main {
                 updatedFiles, new DeferredLog());
 
         //        MyClassLoader loader = new MyClassLoader();
-        Class<?> testInterface = loader.loadClass("com.redsun.classloader.multi.TestInterfaceImpl", false);
+        Class<?> testInterface = loader.loadClass("com.redsun.test.classloader.multi.TestInterfaceImpl", false);
 
 
 //        Class<?> testInterface = loader.findClass("classloader.multi.TestInterfaceImpl");
@@ -46,7 +45,7 @@ public class Main {
         try {
             Object obj = testInterface.newInstance();
 
-            Class clazz = Class.forName("com.redsun.classloader.multi.TestInterface");
+            Class clazz = Class.forName("com.redsun.test.classloader.multi.TestInterface");
             System.out.println(clazz.isInstance(obj));
             System.out.println("clazz's classloader is " + clazz.getClassLoader());
             System.out.println("obj's classloader is " + obj.getClass().getClassLoader());
@@ -59,7 +58,7 @@ public class Main {
     public void test3() throws ClassNotFoundException {
         System.out.println(Thread.currentThread().getContextClassLoader());
 
-        Class clazz = Class.forName("com.redsun.classloader.multi.TestInterface");
+        Class clazz = Class.forName("com.redsun.test.classloader.multi.TestInterface");
 
         MyClassLoader loader = new MyClassLoader();
         Class<?> testInterface = loader.findClass("classloader.multi.TestInterfaceImpl");
